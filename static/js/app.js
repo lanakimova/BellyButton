@@ -214,5 +214,54 @@ function showData() {
         var layout = { width: 450, height: 300} 
 
         Plotly.newPlot('gauge', data, layout);
+
+        // build a horizontal barchart
+        var trace = {
+            type: "bar",
+            x: sampleValue,
+            y: otu_ids.map(d => `OTU-${d} `),
+            orientation: 'h',
+            text: otuLabels
+        };
+
+        var plot_data = [ trace ];
+
+        var layout = {
+            title: "Top 10 Microbes that Colonize Human Navels",
+            height: 400,
+            width: 400
+        
+        };
+        Plotly.newPlot("bar", plot_data, layout);
+
+        // build a bubble chart
+
+        var bubbleTrace = {
+            x: otu_ids,
+            y: sampleValue,
+            mode: 'markers',
+            text: otuLabels,
+            marker: {
+                color: otu_ids,
+                size: sampleValue.map(d => d)
+            }
+        };
+
+        var bubbleData = [ bubbleTrace ];
+
+        var bubbleLayout = {
+            title: 'OTU Value per OTU ID',
+            showlegend: false,
+            height: 600,
+            width: 1000,
+            xaxis: {
+                title: "OTU ID"
+            },
+            yaxis: {
+                title: "OTU Value"
+            }
+        };
+
+        Plotly.newPlot('bubble', bubbleData, bubbleLayout);
     });   
 };
