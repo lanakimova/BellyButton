@@ -5,4 +5,4 @@ In this project giving me the dataset reveals that a small handful of microbial 
 
 Dashboard represents data about tested individuals, bubble and bar chart to visualizes value of microbial species living in navels and even a frequency of belly button wash.
 
-
+<img src="https://github.com/lanakimova/BellyButton/blob/main/static/images/BellyButtonDashboard.png">
